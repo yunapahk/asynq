@@ -26,15 +26,15 @@ mongoose.connect(MONGODB_URL, {
 });
 // Connection Events
 mongoose.connection
-  .on("open", () => console.log("Your are connected to mongoose"))
-  .on("close", () => console.log("Your are disconnected from mongoose"))
+  .on("open", () => console.log("Connected to mongoose. Good job!"))
+  .on("close", () => console.log("Disconnected from mongoose... Fix me!"))
   .on("error", (error) => console.log(error));
 
 ///////////////////////////////
 // MODELS
 ////////////////////////////////
 const EntrySchema = new mongoose.Schema({
-  date: new Date(), // This will store the current date/time as a Date object
+  date: Date,
   category: String,
   description: String,
 });
